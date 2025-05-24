@@ -1,0 +1,375 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+   
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+      <title>School Management System</title>
+      <link rel="shortcut icon" href="{%static 'assets/img/favicon.png' %}">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
+      <!-- Add Tailwind CSS CDN -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- FontAwesome -->
+      <link rel="stylesheet" href="{%static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+      <link rel="stylesheet" href="{%static 'assets/plugins/fontawesome/css/all.min.css' %}">
+      <style>
+         body {
+            font-family: 'Poppins', sans-serif;
+         }
+         .sidebar {
+            background-color: #FFB800;
+            width: 220px;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 30;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+         }
+         .main-content {
+            margin-left: 220px;
+            transition: all 0.3s ease;
+         }
+         .header-main {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+         }
+         .menu-item {
+            color: white;
+            position: relative;
+            display: block;
+            padding: 12px 20px 12px 25px;
+            transition: all 0.3s ease;
+         }
+         .menu-item:hover, .menu-item.active {
+            background-color: rgba(255, 255, 255, 0.1);
+         }
+         .menu-item i {
+            margin-right: 10px;
+         }
+         .submenu {
+            display: none;
+            margin-left: 25px;
+         }
+         .submenu.show {
+            display: block;
+         }
+         .submenu-item {
+            color: white;
+            padding: 8px 5px;
+            display: block;
+         }
+         .logo-container {
+            padding: 15px 20px;
+            background-color: #FFB800;
+            display: flex;
+            align-items: center;
+         }
+         .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+         }
+         .info-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+         }
+         .info-card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-right: 15px;
+         }
+         @media (max-width: 992px) {
+            .sidebar {
+               transform: translateX(-100%);
+            }
+            .sidebar.show {
+               transform: translateX(0);
+            }
+            .main-content {
+               margin-left: 0;
+            }
+         }
+      </style>
+   </head>
+   <body class="bg-gray-100">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+         <div class="logo-container">
+            <a href="{% url 'index' %}" class="flex items-center">
+               <img src="{% static 'assets/img/logo.png' %}" alt="Logo" class="h-8">
+               <span class="text-white font-bold ml-2 text-xl">Akkhor</span>
+            </a>
+         </div>
+         
+         <nav class="mt-6">
+            <ul>
+               <li>
+                  <a href="{% url 'index' %}" class="menu-item active">
+                     <i class="fas fa-home"></i>
+                     <span>Dashboard</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item submenu-toggle">
+                     <i class="fas fa-user"></i>
+                     <span>Admin</span>
+                  </a>
+                  <ul class="submenu">
+                     <li><a href="#" class="submenu-item">Admin Dashboard</a></li>
+                  </ul>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item submenu-toggle">
+                     <i class="fas fa-user-graduate"></i>
+                     <span>Students</span>
+                  </a>
+                  <ul class="submenu">
+                     <li><a href="{% url 'student_list' %}" class="submenu-item">All Students</a></li>
+                     <li><a href="{% url 'student_create' %}" class="submenu-item">Add New Student</a></li>
+                  </ul>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item submenu-toggle">
+                     <i class="fas fa-chalkboard-teacher"></i>
+                     <span>Teachers</span>
+                  </a>
+                  <ul class="submenu">
+                     <li><a href="{% url 'teacher_list' %}" class="submenu-item">All Teachers</a></li>
+                     <li><a href="{% url 'teacher_create' %}" class="submenu-item">Add New Teacher</a></li>
+                  </ul>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-book"></i>
+                     <span>Library</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-money-bill"></i>
+                     <span>Account</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-graduation-cap"></i>
+                     <span>Class</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-book-open"></i>
+                     <span>Subject</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-tasks"></i>
+                     <span>Class Routine</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-clipboard-check"></i>
+                     <span>Attendance</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-file-alt"></i>
+                     <span>Exam</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-bus"></i>
+                     <span>Transport</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-hotel"></i>
+                     <span>Hostel</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-bell"></i>
+                     <span>Notice</span>
+                  </a>
+               </li>
+               
+               <li>
+                  <a href="#" class="menu-item">
+                     <i class="fas fa-envelope"></i>
+                     <span>Message</span>
+                  </a>
+               </li>
+            </ul>
+         </nav>
+      </aside>
+      
+      <!-- Main Content -->
+      <div class="main-content">
+         <!-- Header -->
+         <header class="header-main">
+            <div class="flex justify-between items-center py-3 px-6">
+               <div class="flex items-center">
+                  <button id="sidebar_toggle" class="text-gray-600 mr-4 lg:hidden">
+                     <i class="fas fa-bars text-xl"></i>
+                  </button>
+                  <h4 class="text-gray-700 font-medium">Welcome To School Management System</h4>
+               </div>
+               
+               <div class="flex items-center space-x-4">
+                  <!-- Search Bar -->
+                  <div class="hidden md:block relative">
+                     <input type="text" class="h-10 w-64 pl-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search here...">
+                     <button class="absolute right-3 top-2 text-gray-500" type="submit">
+                        <i class="fas fa-search"></i>
+                     </button>
+                  </div>
+                  
+                  <!-- Language Selector -->
+                  <div class="hidden md:flex items-center">
+                     <span class="text-gray-700 mr-2">English</span>
+                     <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                  </div>
+                  
+                  <!-- Notifications -->
+                  <div class="relative">
+                     <button class="text-gray-600 hover:text-gray-800 relative p-1" id="notification_btn">
+                        <i class="far fa-bell text-xl"></i>
+                        {% if unread_notification_count > 0 %}
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                           {{ unread_notification_count }}
+                        </span>
+                        {% endif %}
+                     </button>
+                  </div>
+                  
+                  <!-- Messages -->
+                  <div class="relative">
+                     <button class="text-gray-600 hover:text-gray-800 relative p-1">
+                        <i class="far fa-envelope text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                           3
+                        </span>
+                     </button>
+                  </div>
+                  
+                  <!-- User Profile -->
+                  <div class="relative">
+                     <button class="flex items-center text-gray-700" id="user_btn">
+                        <img class="h-8 w-8 rounded-full object-cover" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" alt="User">
+                        <div class="ml-2 hidden md:block">
+                           <p class="text-sm font-medium">{{user.username|default:"Parent"}}</p>
+                           <p class="text-xs text-gray-500">Parent</p>
+                        </div>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </header>
+         
+         <!-- Page Content -->
+         <div class="p-6">
+            {% block body %}
+            {% endblock %}
+         </div>
+      </div>
+      
+      <!-- Scripts -->
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle
+            const sidebarToggle = document.getElementById('sidebar_toggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            if (sidebarToggle) {
+               sidebarToggle.addEventListener('click', function() {
+                  sidebar.classList.toggle('show');
+               });
+            }
+            
+            // Handle submenu toggles
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+            
+            submenuToggles.forEach(toggle => {
+               toggle.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  const submenu = this.nextElementSibling;
+                  
+                  // Close other submenus
+                  document.querySelectorAll('.submenu').forEach(menu => {
+                     if (menu !== submenu) {
+                        menu.classList.remove('show');
+                     }
+                  });
+                  
+                  // Toggle current submenu
+                  submenu.classList.toggle('show');
+               });
+            });
+            
+            // Set active menu item based on current page
+            const currentPath = window.location.pathname;
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+               const link = item.getAttribute('href');
+               if (link && currentPath.includes(link) && link !== '#') {
+                  item.classList.add('active');
+                  
+                  // If it's in a submenu, show that submenu
+                  const parentLi = item.closest('li');
+                  if (parentLi && parentLi.parentElement.classList.contains('submenu')) {
+                     parentLi.parentElement.classList.add('show');
+                  }
+               }
+            });
+            
+            // Close sidebar on window resize if in mobile view
+            window.addEventListener('resize', function() {
+               if (window.innerWidth >= 992) {
+                  sidebar.classList.remove('show');
+               }
+            });
+            
+            // Close sidebar when clicking outside of it (mobile)
+            document.addEventListener('click', function(event) {
+               if (window.innerWidth < 992 && 
+                   !sidebar.contains(event.target) && 
+                   !sidebarToggle.contains(event.target) && 
+                   sidebar.classList.contains('show')) {
+                  sidebar.classList.remove('show');
+               }
+            });
+         });
+      </script>
+   </body>
+</html> 

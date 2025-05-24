@@ -1,0 +1,315 @@
+{% extends 'Home/base_tailwind.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Breadcrumb -->
+<div class="mb-6">
+   <nav class="flex">
+      <ol class="flex flex-wrap items-center space-x-2 text-sm">
+         <li><a href="{% url 'index' %}" class="text-gray-600 hover:text-blue-500">Home</a></li>
+         <li class="text-gray-400 px-1">></li>
+         <li class="text-gray-500">Dashboard</li>
+      </ol>
+   </nav>
+</div>
+
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+   <!-- Due Fees Card -->
+   <div class="card">
+      <div class="info-card">
+         <div class="info-card-icon bg-red-100">
+            <i class="fas fa-dollar-sign text-red-500 text-3xl"></i>
+         </div>
+         <div>
+            <h3 class="text-3xl font-bold text-gray-800">1,500</h3>
+            <p class="text-gray-500">Due Fees</p>
+         </div>
+      </div>
+   </div>
+   
+   <!-- Upcoming Exams Card -->
+   <div class="card">
+      <div class="info-card">
+         <div class="info-card-icon bg-green-100">
+            <i class="fas fa-pen text-green-500 text-3xl"></i>
+         </div>
+         <div>
+            <h3 class="text-3xl font-bold text-gray-800">15</h3>
+            <p class="text-gray-500">Upcoming Exams</p>
+         </div>
+      </div>
+   </div>
+   
+   <!-- Results Published Card -->
+   <div class="card">
+      <div class="info-card">
+         <div class="info-card-icon bg-blue-100">
+            <i class="fas fa-graduation-cap text-blue-500 text-3xl"></i>
+         </div>
+         <div>
+            <h3 class="text-3xl font-bold text-gray-800">08</h3>
+            <p class="text-gray-500">Results Published</p>
+         </div>
+      </div>
+   </div>
+   
+   <!-- Total Expenses Card -->
+   <div class="card">
+      <div class="info-card">
+         <div class="info-card-icon bg-cyan-100">
+            <i class="fas fa-money-bill-wave text-cyan-500 text-3xl"></i>
+         </div>
+         <div>
+            <h3 class="text-3xl font-bold text-gray-800">10,000</h3>
+            <p class="text-gray-500">Total Expenses</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Student Information Cards -->
+<div class="mb-8">
+   <!-- Student Card 1 -->
+   <div class="card mb-6">
+      <div class="p-3 bg-gray-50 border-b flex justify-between items-center">
+         <h3 class="font-medium text-gray-700">My Children_01</h3>
+         <div class="flex space-x-2">
+            <button class="text-green-500"><i class="fas fa-sync-alt"></i></button>
+            <button class="text-red-500"><i class="fas fa-times"></i></button>
+         </div>
+      </div>
+      <div class="p-4">
+         <div class="flex flex-col md:flex-row">
+            <div class="w-32 h-32 bg-blue-100 rounded-md mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+               <img src="{% static 'assets/img/student-1.png' %}" class="w-full h-full object-cover" alt="Student">
+            </div>
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
+               <div>
+                  <p class="text-gray-500 mb-1">Name:</p>
+                  <p class="font-medium">Richi Hassan</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Gender:</p>
+                  <p class="font-medium">Female</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Roll:</p>
+                  <p class="font-medium"># 2901</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Admission ID:</p>
+                  <p class="font-medium"># 1250</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Admission Date:</p>
+                  <p class="font-medium">05/04/2016</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Class:</p>
+                  <p class="font-medium">2</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Section:</p>
+                  <p class="font-medium">A</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   <!-- Student Card 2 -->
+   <div class="card">
+      <div class="p-3 bg-gray-50 border-b flex justify-between items-center">
+         <h3 class="font-medium text-gray-700">My Children_02</h3>
+         <div class="flex space-x-2">
+            <button class="text-green-500"><i class="fas fa-sync-alt"></i></button>
+            <button class="text-red-500"><i class="fas fa-times"></i></button>
+         </div>
+      </div>
+      <div class="p-4">
+         <div class="flex flex-col md:flex-row">
+            <div class="w-32 h-32 bg-green-100 rounded-md mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+               <img src="{% static 'assets/img/student-2.png' %}" class="w-full h-full object-cover" alt="Student">
+            </div>
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
+               <div>
+                  <p class="text-gray-500 mb-1">Name:</p>
+                  <p class="font-medium">Mark Willy</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Gender:</p>
+                  <p class="font-medium">Male</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Roll:</p>
+                  <p class="font-medium"># 2959</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Admission ID:</p>
+                  <p class="font-medium"># 1259</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Admission Date:</p>
+                  <p class="font-medium">15/04/2016</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Class:</p>
+                  <p class="font-medium">6</p>
+               </div>
+               <div>
+                  <p class="text-gray-500 mb-1">Section:</p>
+                  <p class="font-medium">B</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Notice Board -->
+<div class="card mb-8">
+   <div class="p-3 bg-gray-50 border-b flex justify-between items-center">
+      <h3 class="font-medium text-gray-700">Notice Board</h3>
+      <div class="flex space-x-2">
+         <button class="text-green-500"><i class="fas fa-sync-alt"></i></button>
+         <button class="text-red-500"><i class="fas fa-times"></i></button>
+      </div>
+   </div>
+   <div class="p-4">
+      <div class="space-y-4">
+         <div class="border-b pb-4">
+            <div class="flex justify-between mb-2">
+               <p class="text-gray-500">16 May, 2017</p>
+               <p class="text-gray-500">5 min ago</p>
+            </div>
+            <p class="font-medium text-blue-500 mb-1">Jennyfer Lopez</p>
+            <p class="text-gray-600">Great School management system dummy text of the printing and typesetting industry.</p>
+         </div>
+         <div class="border-b pb-4">
+            <div class="flex justify-between mb-2">
+               <p class="text-gray-500">16 May, 2017</p>
+               <p class="text-gray-500">10 min ago</p>
+            </div>
+            <p class="font-medium text-orange-500 mb-1">Kazi Fahim</p>
+            <p class="text-gray-600">Great School management system dummy text of the printing and typesetting industrysm simply.</p>
+         </div>
+         <div>
+            <div class="flex justify-between mb-2">
+               <p class="text-gray-500">16 May, 2017</p>
+               <p class="text-gray-500">20 min ago</p>
+            </div>
+            <p class="font-medium text-gray-700 mb-1">Gizzar Awala</p>
+            <p class="text-gray-600">Great School management system dummy text of the printing and typesetting industry.</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Expenses Table -->
+<div class="card">
+   <div class="p-3 bg-gray-50 border-b flex justify-between items-center">
+      <h3 class="font-medium text-gray-700">All Expenses</h3>
+      <div class="flex space-x-2">
+         <button class="text-green-500"><i class="fas fa-sync-alt"></i></button>
+         <button class="text-red-500"><i class="fas fa-times"></i></button>
+      </div>
+   </div>
+   <div class="p-4">
+      <div class="flex flex-wrap justify-between mb-4">
+         <div class="w-full md:w-auto mb-3 md:mb-0">
+            <div class="flex items-center max-w-md">
+               <select class="form-select border-gray-300 rounded-md shadow-sm p-2 max-w-xs">
+                  <option>Choose Type</option>
+                  <option>All</option>
+                  <option>Fees</option>
+                  <option>Salary</option>
+               </select>
+            </div>
+         </div>
+         <div class="flex flex-wrap space-x-2">
+            <div class="mb-2 sm:mb-0">
+               <input type="text" placeholder="Search by ID..." class="border border-gray-300 rounded-md p-2 w-32">
+            </div>
+            <div class="mb-2 sm:mb-0">
+               <input type="text" placeholder="Search by Date..." class="border border-gray-300 rounded-md p-2 w-36">
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-md">SEARCH</button>
+         </div>
+      </div>
+      
+      <div class="overflow-x-auto">
+         <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+               <tr>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID No</th>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expense Type</th>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-mail</th>
+                  <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+               </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+               <tr>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900"># 3055</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">Salary</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">$300.00</td>
+                  <td class="px-4 py-3 whitespace-nowrap">
+                     <span class="px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-full">Due</span>
+                  </td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">kazifehim93@gmail.com</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">20/06/2017</td>
+               </tr>
+               <tr>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900"># 3056</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">Exam Fee</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">$500.00</td>
+                  <td class="px-4 py-3 whitespace-nowrap">
+                     <span class="px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded-full">Paid</span>
+                  </td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">kazifehim93@gmail.com</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">20/06/2017</td>
+               </tr>
+               <tr>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900"># 3057</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">Library Fee</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">$900.00</td>
+                  <td class="px-4 py-3 whitespace-nowrap">
+                     <span class="px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded-full">Paid</span>
+                  </td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">kazifehim93@gmail.com</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">20/06/2017</td>
+               </tr>
+               <tr>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900"># 3058</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">Class Test Fee</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">$300.00</td>
+                  <td class="px-4 py-3 whitespace-nowrap">
+                     <span class="px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-full">Due</span>
+                  </td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">kazifehim93@gmail.com</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">20/06/2017</td>
+               </tr>
+               <tr>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900"># 3059</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">Exam Fee</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">$500.00</td>
+                  <td class="px-4 py-3 whitespace-nowrap">
+                     <span class="px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded-full">Paid</span>
+                  </td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">kazifehim93@gmail.com</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">20/06/2017</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+
+<!-- Footer -->
+<div class="mt-8 text-center text-sm text-gray-500">
+   <p>© Copyrights akkhor 2017. All rights reserved. Designed by PsdBoss</p>
+</div>
+
+{% endblock %} 
